@@ -1,3 +1,8 @@
+<?php
+include_once "classes/Menu.php";
+use classes\Menu;
+$menu = new Menu();
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 
@@ -12,12 +17,7 @@
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#home" class="smoothScroll">Home</a></li>
-				<li><a href="#about" class="smoothScroll">About</a></li>
-				<li><a href="#screenshot" class="smoothScroll">Screenshots</a></li>
-                <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
-                <li><a href="#newsletter" class="smoothScroll">Newsletter</a></li>
-        		<li><a href="#" data-toggle="modal" data-target="#modal1">Contact</a></li>
+				<?php echo $menu->getMenu("header"); ?>
 			</ul>
 		</div>
 
