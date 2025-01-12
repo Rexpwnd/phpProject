@@ -1,0 +1,40 @@
+[
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#home",
+        "content": "Home"
+    },
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#about",
+        "content": "About"
+    },
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#screenshot",
+        "content": "Screenshots"
+    },
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#pricing",
+        "content": "Pricing"
+    },
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#newsletter",
+        "content": "Newsletter"
+    },
+    {
+        "class": null,
+        "class-a": "smoothScroll",
+        "href": "#",
+        "data-toggle": "modal",
+        "data-target": "#modal1",
+        "content": "Contact"
+    }
+]

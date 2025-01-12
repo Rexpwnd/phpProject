@@ -17,7 +17,7 @@ $menu = new Menu();
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<?php echo $menu->getMenu("header"); ?>
+				<?php echo $menu->getMenu(); ?>
 			</ul>
 		</div>
 
