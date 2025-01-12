@@ -29,7 +29,7 @@ class Newsletter
             $connection->beginTransaction();
             $stmt->execute(); // Execute the prepared statement
             $connection->commit();
-            echo "Email was inserted into the newsletter successfully.";
+            echo "You have been signed for newsletter successfully";
         } catch (\PDOException $e) {
             $connection->rollBack();
             error_log("Transaction failed: " . $e->getMessage());
