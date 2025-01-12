@@ -54,7 +54,7 @@ class Menu
         }
     }
 
-    public function getMenuFromDatabase($type = "header"): array|string 
+    public function getMenuFromDatabase(): array|string 
     {
         $html = "";
         try {
