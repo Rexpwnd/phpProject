@@ -111,78 +111,9 @@ include_once "parts/nav.php";
      </div>
 </section>
 
-
 <!-- Screenshot Section -->
-
-<section id="screenshot">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-2 col-md-8 col-sm-12">
-                    <div class="section-title">
-                         <h1>App Screenshots</h1>
-                         <p class="wow fadeInUp" data-wow-delay="0.8s">Nulla nisi purus, ultrices et scelerisque at, ullamcorper et ex. Phasellus at nisi lobortis, semper tortor sed, gravida neque.</p>
-                    </div>
-               </div>
-
-               <!-- Screenshot Owl Carousel -->
-               <div id="screenshot-carousel" class="owl-carousel">
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img1.jpg" class="image-popup">
-                              <img src="images/screenshot-img1.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img2.jpg" class="image-popup">
-                              <img src="images/screenshot-img2.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img3.jpg" class="image-popup">
-                              <img src="images/screenshot-img3.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img4.jpg" class="image-popup">
-                              <img src="images/screenshot-img4.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img5.jpg" class="image-popup">
-                              <img src="images/screenshot-img5.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img6.jpg" class="image-popup">
-                              <img src="images/screenshot-img6.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img7.jpg" class="image-popup">
-                              <img src="images/screenshot-img7.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-                    <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-                         <a href="images/screenshot-img8.jpg" class="image-popup">
-                              <img src="images/screenshot-img8.jpg" class="img-responsive" alt="screenshot">
-                         </a>
-                    </div>
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
 <?php
+include_once "parts/screenshot.php";
 include_once "parts/pricing.php";
 ?>
 
