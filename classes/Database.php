@@ -22,7 +22,7 @@ class Database
         }
     }
 
-    public function getConnection()
+    public function getConnection(): \PDO
     {
         return $this->connection;
     }
@@ -37,5 +37,9 @@ class Database
             error_log("Query error: " . $e->getMessage());
             return false;
         }
+    }
+
+    public function sanitizeInput($input) {
+        return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
     }
 }
