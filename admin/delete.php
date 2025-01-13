@@ -7,7 +7,7 @@ $admin = new Admin();
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
-    $delete = $admin->deleteMenu($id);
+    $delete = $admin->deletePricingPlan($id);
     if($delete) {
         header("Location: index.php");
     } else {

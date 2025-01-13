@@ -5,7 +5,7 @@ require_once 'adminDbConfig.php';
 class Admin
 {
     private $connection;
-
+    
     public function __construct()
     {
         try {
@@ -26,110 +26,65 @@ class Admin
         return $this->connection;
     }
 
-    public function getMenu(int $id = null): array
+    public function getPricingPlans(int $id = null): array
     {
-        if($id) {
-            $sql = "SELECT * FROM menu WHERE id = " . $id;
-        } else {
-            $sql = "SELECT * FROM menu";
-        }
+        $tableName = "pricing";
+
+        $sql = $id ? "SELECT * FROM $tableName WHERE id = $id" : "SELECT * FROM $tableName";
 
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
-        $menuData = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $pricingPlans = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return $menuData;
+        return $pricingPlans;
     }
 
-    public function insertMenu(array $data): bool
+    public function insertPricingPlan(array $data): bool
     {
-        $menuInsertSQL = "INSERT INTO menu (`class`, `class-a`, `href`, `css-id`, `role`, `data-bs-toggle`, `aria-expanded`, `content`, `class-ul`, `aria-labelledby`) 
-                  VALUES (:class, :class_a, :href, :css_id, :role, :data_bs_toggle, :aria_expanded, :content, :class_ul, :aria_labelledby)";
+        $menuInsertSQL = "INSERT INTO pricing (`title`, `price`, `content`) 
+                  VALUES (:title, :price, :content)";
         $menuInsertStmt = $this->connection->prepare($menuInsertSQL);
-        // Hodnoty pre hlavnú položku menu
-        $class = $data['class'] ?? '';
-        $class_a = $data['class-a'] ?? '';
-        $href = $data['href'] ?? '';
-        $css_id = $data['css-id'] ?? '';
-        $role = $data['role'] ?? '';
-        $data_bs_toggle = $data['data-bs-toggle'] ?? '';
-        $aria_expanded = $data['aria-expanded'] ?? '';
+        $title = $data['title'] ?? '';
+        $price = $data['price'] ?? '';
         $content = $data['content'] ?? '';
-        $class_ul = $data['class-ul'] ?? '';
-        $aria_labelledby = $data['aria-labelledby'] ?? '';
 
-        // Vloženie hlavnej položky menu
         $insert = $menuInsertStmt->execute([
-            ':class' => $class,
-            ':class_a' => $class_a,
-            ':href' => $href,
-            ':css_id' => $css_id,
-            ':role' => $role,
-            ':data_bs_toggle' => $data_bs_toggle,
-            ':aria_expanded' => $aria_expanded,
+            ':title' => $title,
+            ':price' => $price,
             ':content' => $content,
-            ':class_ul' => $class_ul,
-            ':aria_labelledby' => $aria_labelledby,
         ]);
 
         return $insert;
     }
 
-    public function deleteMenu(int $id): bool
+    public function deletePricingPlan(int $id): bool
     {
-        $menuDeleteSQL = "DELETE FROM menu WHERE id = :id";
+        $menuDeleteSQL = "DELETE FROM pricing WHERE id = :id";
         $menuDeleteStmt = $this->connection->prepare($menuDeleteSQL);
-
-        // Vloženie hlavnej položky menu
         $delete = $menuDeleteStmt->execute([
             ':id' => $id
         ]);
-
         return $delete;
     }
 
-    public function updateMenu(int $id, array $data): bool
+    public function updatePricingPlan(int $id, array $data): bool
     {
-        $menuUpdatetSQL = "UPDATE menu 
-                          SET `class` = :class, 
-                              `class-a` = :class_a, 
-                              `href` = :href, 
-                              `css-id` = :css_id, 
-                              `role` = :role, 
-                              `data-bs-toggle` = :data_bs_toggle, 
-                              `aria-expanded` = :aria_expanded, 
-                              `content` = :content, 
-                              `class-ul` = :class_ul, 
-                              `aria-labelledby` = :aria_labelledby
+        $menuUpdatetSQL = "UPDATE pricing 
+                          SET `title` = :title, 
+                              `price` = :price, 
+                              `content` = :content 
                               WHERE id = :id";
         $menuUpdateStmt = $this->connection->prepare($menuUpdatetSQL);
-        // Hodnoty pre hlavnú položku menu
-        $class = $data['class'] ?? '';
-        $class_a = $data['class-a'] ?? '';
-        $href = $data['href'] ?? '';
-        $css_id = $data['css-id'] ?? '';
-        $role = $data['role'] ?? '';
-        $data_bs_toggle = $data['data-bs-toggle'] ?? '';
-        $aria_expanded = $data['aria-expanded'] ?? '';
+        $title = $data['title'] ?? '';
+        $price = $data['price'] ?? '';
         $content = $data['content'] ?? '';
-        $class_ul = $data['class-ul'] ?? '';
-        $aria_labelledby = $data['aria-labelledby'] ?? '';
 
-        // Vloženie hlavnej položky menu
         $update = $menuUpdateStmt->execute([
-            ':class' => $class,
-            ':class_a' => $class_a,
-            ':href' => $href,
-            ':css_id' => $css_id,
-            ':role' => $role,
-            ':data_bs_toggle' => $data_bs_toggle,
-            ':aria_expanded' => $aria_expanded,
+            ':title' => $title,
+            ':price' => $price,
             ':content' => $content,
-            ':class_ul' => $class_ul,
-            ':aria_labelledby' => $aria_labelledby,
             ':id' => $id,
         ]);
-
         return $update;
     }
 }
