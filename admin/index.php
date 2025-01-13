@@ -1,4 +1,5 @@
 <?php
+include_once "auth.php";
 include_once "Admin.php";
 use Admin\Admin;
 
@@ -22,7 +23,7 @@ $pricingPlans = $admin->getPricingPlans();
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="btn btn-danger" href="insert.php">Logout</a></li>
+                    <li class="nav-item"><a class="btn btn-danger" href="logout.php">Logout</a></li>
                 </ul>
             </div>
         </nav>
